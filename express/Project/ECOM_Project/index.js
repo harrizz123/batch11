@@ -4,7 +4,7 @@ const app = express();
 const prisma = new PrismaClient();
 
 app.use(express.json());
-const { z } = require("zod");
+const { z } = require("zod");   
 const productByIdSchema = z.object({
     product_id: z.string()
 })
@@ -27,7 +27,7 @@ app.get("/products", async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Internal Server Error" }, error);
-        res.json({ message: error || "Internal Server error" })
+       // res.json({ message: error || "Internal Server error" })
     }
 
 
@@ -50,18 +50,6 @@ app.get("/products/:product_id", async (req, res) => {
         console.log("Internal Server error", error)
         res.json({ message: error || "Internal Server error" })
     }
-    //data from frontend
-    const data = productByIdSchema.parse(req.params)
-
-    //db logic
-    const productData = await prisma.product.findUnique({
-        where: {
-            product_id: data.product_id
-        }
-    })
-    //data to frontend
-    res.status(200).json({ message: "productData fetch Successfully", data: productData })
-
 })
 
 
