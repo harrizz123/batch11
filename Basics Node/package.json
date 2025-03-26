@@ -1,0 +1,15 @@
+{
+  "name": "basics-node",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "harris",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cal-project-saeed": "^1.0.1"
+  }
+}
