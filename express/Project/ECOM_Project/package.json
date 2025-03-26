@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-      "postinstall": "prisma generate"
+      "postinstall": "chmod +x ./node_modules/.bin/prisma && prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^6.5.0",
